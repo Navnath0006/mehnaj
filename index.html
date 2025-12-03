@@ -1,149 +1,524 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Mehnaj Khatoon's Portfolio</title>
-    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/a-/ALV-UjXiMBZhCX89qiQhfEMGvr-GQ0qQl91duM43GAJEirKTBakt7Z1Z=s64-p-k-rw-no">
+    <title>Dr. Mehnaj Khatoon | Researcher & Bioinformatics Expert</title>
+    <meta name="description" content="Portfolio of Dr. Mehnaj Khatoon, a Researcher specializing in Biotechnology and Bioinformatics.">
+    <link rel="icon" type="image/png" href="resource/profile.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#111827',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
-        .fade-in {
-            animation: fadeIn 1s ease-out;
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-light text-gray-800 dark:bg-dark dark:text-gray-100 transition-colors duration-300 font-sans antialiased">
 
-    <!-- Header Section -->
-    <header class="bg-gradient-to-r from-blue-500 to-green-500 text-white py-6 shadow-lg">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
-            <div class="flex items-center">
-                <!-- Profile Picture -->
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjXiMBZhCX89qiQhfEMGvr-GQ0qQl91duM43GAJEirKTBakt7Z1Z=s64-p-k-rw-no" alt="Profile Photo" class="w-20 h-20 rounded-full border-4 border-white shadow-md">
-                <!-- Title -->
-                <div class="ml-4">
-                    <h1 class="text-2xl font-bold">Dr. Mehnaj Khatoon</h1>
-                    <p class="text-sm">Researcher at ICAR-NIVEDI, Bengaluru, Karnataka, India</p>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm transition-colors duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                Dr. Mehnaj Khatoon
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#education" class="hover:text-primary transition-colors">Education</a>
+                <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                <a href="#publications" class="hover:text-primary transition-colors">Publications</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="theme-toggle-mobile" class="mr-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+                <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg absolute w-full left-0 top-full">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#education" class="hover:text-primary transition-colors">Education</a>
+                <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                <a href="#publications" class="hover:text-primary transition-colors">Publications</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex items-center justify-center pt-20 pb-10 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+        <div class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+            <div class="flex-1 text-center md:text-left fade-in-up">
+                <h2 class="text-primary font-semibold tracking-wide uppercase mb-2">Researcher & Bioinformatics Expert</h2>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                    Hi, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Dr. Mehnaj Khatoon</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl leading-relaxed">
+                    Life science researcher with a Biotechnology background and expertise in bioinformatics, spanning multi-omics, SNP studies, protein modeling, and computational vaccine design.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#contact" class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-primary/30">
+                        Get in Touch
+                    </a>
+                    <a href="publications.html" class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-primary text-gray-800 dark:text-gray-200 px-8 py-3 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
+                        View Publications
+                    </a>
+                </div>
+
+                <div class="mt-10 flex flex-wrap justify-center md:justify-start gap-6 text-sm md:text-base text-gray-500 dark:text-gray-400">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-primary mr-2"></i> Byatarayanapura, Bangalore, India
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-primary mr-2"></i> +91-9304638300
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center md:justify-start gap-6">
+                    <a href="https://www.linkedin.com/in/mehnaj-Khatoon-741250230" target="_blank" class="text-gray-500 hover:text-primary text-2xl transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:Mehnajkhatoon044@gmail.com" class="text-gray-500 hover:text-primary text-2xl transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
-            <nav class="mt-4 md:mt-0">
-                <a href="#about" class="text-lg font-medium hover:underline mx-2">About</a>
-                <a href="#experience" class="text-lg font-medium hover:underline mx-2">Experience</a>
-                <a href="#publications" class="text-lg font-medium hover:underline mx-2">Publications</a>
-                <a href="#contact" class="text-lg font-medium hover:underline mx-2">Contact</a>
-            </nav>
+
+            <div class="flex-1 flex justify-center fade-in-up delay-200">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-full opacity-30 blur-xl animate-pulse"></div>
+                    <img src="resource/profile.jpg"
+                         alt="Dr. Mehnaj Khatoon"
+                         class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl relative z-10 transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-10 bg-white shadow-md fade-in">
+    <section id="about" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6 text-blue-500">About Me</h2>
-            <p class="text-lg text-center max-w-2xl mx-auto">
-                I am a dedicated Research Fellow with a background in Biotechnology and hands-on experience in bioinformatics. 
-                I aim to use my bioinformatics skills to make significant scientific contributions, focusing on advancing research in the life sciences to improve health outcomes.
-            </p>
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-8 relative inline-block">
+                    Career Objective
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform scale-x-50 origin-center"></span>
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                    Life science researcher with a Biotechnology background and expertise in bioinformatics,
+                    spanning multi-omics, SNP studies, protein modeling, and computational vaccine design. Skilled in wet
+                    lab techniques, including molecular biology, microbiology, immunology, DNA extraction, PCR, ELISA,
+                    and cell culture. Proficient in R, Python, Bioconductor, and machine learning, with a strong publication
+                    record. Committed to advancing translational research by integrating computational and experimental
+                    approaches to drive impactful scientific and healthcare outcomes.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Career Objective Section -->
-    <section id="career-objective" class="py-10 bg-gradient-to-r from-green-100 to-blue-100 fade-in">
+    <!-- Education & Dissertation Section -->
+    <section id="education" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6 text-green-600">Career Objective</h2>
-            <p class="text-lg text-center max-w-2xl mx-auto">
-                I am passionate about advancing research in the life sciences and am committed to using my expertise to drive scientific progress and improve health outcomes.
-            </p>
+            <h2 class="text-3xl font-bold text-center mb-12">Academic Qualification & Research</h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+
+                <!-- Masters -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md border-l-4 border-primary">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Master of Science in Biotechnology</h3>
+                        <span class="text-sm bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-600 dark:text-gray-300">11/2021 – 07/2023</span>
+                    </div>
+                    <p class="text-primary font-medium">Ranchi University, Jharkhand, India</p>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Aggregate: 72%</p>
+                </div>
+
+                <!-- Bachelors -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md border-l-4 border-secondary">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Bachelor of Science in Biotechnology</h3>
+                        <span class="text-sm bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-600 dark:text-gray-300">08/2017 – 10/2020</span>
+                    </div>
+                    <p class="text-primary font-medium">Ranchi University, Jharkhand, India</p>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Aggregate: 69.33%</p>
+                </div>
+
+                <!-- Dissertation -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md border-l-4 border-purple-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Dissertation / Research Project</h3>
+                        <span class="text-sm bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-600 dark:text-gray-300">02/2023 – 07/2024</span>
+                    </div>
+                    <p class="text-primary font-medium">ICAR-National Institute of Veterinary Epidemiology and Disease Informatics, Bangalore</p>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2 italic">
+                        "Decoding bovine coronavirus immune targets: an epitope informatics approach" (Published in BMC Journal)
+                    </p>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- Work Experience Section -->
-    <section id="experience" class="py-10 bg-white shadow-md fade-in">
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6 text-blue-500">Work Experience</h2>
-            <div class="space-y-6 max-w-4xl mx-auto">
-                <!-- Work Experience 1 -->
-                <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700">Project Associate-I</h3>
-                    <p class="text-sm text-gray-500">ICAR - National Institute of Veterinary Epidemiology and Disease Informatics, Bangalore, India (01/2024-Present)</p>
-                    <ul class="list-disc pl-6 mt-2">
+            <h2 class="text-3xl font-bold text-center mb-12">Work Experience</h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+
+                <!-- Role 1 -->
+                <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-gray-900"></div>
+                    <div class="mb-2">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">18/02/2025 – Present</span>
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Project Research Associate</h3>
+                        <p class="text-primary font-medium">ICAR - NIVEDI, Bangalore, India</p>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300 mt-4">
+                        <li>Conducted bioinformatics research experiments on Japanese Encephalitis Virus.</li>
+                        <li>Performed Transcriptomic Analysis, NGS Analysis, and Machine learning.</li>
+                        <li>RNA-seq workflows, QC, alignment, and differential expression.</li>
+                        <li>Manage project Progress report, PPT Expenditure, and overall project administration.</li>
+                    </ul>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-secondary border-4 border-white dark:border-gray-900"></div>
+                    <div class="mb-2">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">01/02/2024 – 17/02/2025</span>
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Project Associate-I</h3>
+                        <p class="text-primary font-medium">ICAR - NIVEDI, Bangalore, India</p>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300 mt-4">
                         <li>Conducted bioinformatics research experiments on One-Health viral diseases.</li>
-                        <li>Performed molecular docking and molecular dynamic simulations, codon usage bias, evolutionary analysis, SNP Prediction, and PPI.</li>
+                        <li>Conducted DNA Isolation, GEL Electrophoresis, and ELISA for samples.</li>
+                        <li>Performed molecular docking and molecular dynamics simulations, codon usage bias, evolutionary analysis, SNP Prediction, and PPI.</li>
+                        <li>Modelling and analysing the 3D structure of proteins and nucleic acids.</li>
                         <li>Managed project expenditure and overall project administration.</li>
                     </ul>
                 </div>
+
+                <!-- Role 3 -->
+                <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-400 border-4 border-white dark:border-gray-900"></div>
+                    <div class="mb-2">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">19/09/2023 – 30/01/2024</span>
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Office Assistant</h3>
+                        <p class="text-primary font-medium">ICAR-NIVEDI, Bengaluru</p>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300 mt-4">
+                        <li>Contributed to wet-lab tasks: DNA isolation, PCR, gel electrophoresis, and ELISA.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Technical Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <!-- Laboratory Skills -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
+                    <div class="text-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-flask text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Laboratory Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Molecular Biology</h4>
+                            <p class="text-gray-700 dark:text-gray-200 text-sm">DNA isolation, gel electrophoresis, PCR</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Microbiology</h4>
+                            <p class="text-gray-700 dark:text-gray-200 text-sm">Staining, culture techniques, growth kinetics, media preparation</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Immunology</h4>
+                            <p class="text-gray-700 dark:text-gray-200 text-sm">ELISA, slide agglutination, blood cell counting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bioinformatics Skills -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
+                    <div class="text-center mb-6">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-dna text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Bioinformatics Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Sequence & Omics</h4>
+                            <p class="text-gray-700 dark:text-gray-200 text-sm">MSA, BLAST, RNA-seq, transcriptomic analysis, multi-omics integration</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Structural & Evolutionary</h4>
+                            <p class="text-gray-700 dark:text-gray-200 text-sm">Molecular docking, MD simulations, 3D modeling, Phylogenetics, SNP identification</p>
+                        </div>
+                         <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Immunoinformatics</h4>
+                            <p class="text-gray-700 dark:text-gray-200 text-sm">Epitope prediction, vaccine design, T-cell/B-cell mapping</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
+                    <div class="text-center mb-6">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-purple-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Programming & Tools</h3>
+                    </div>
+                     <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Languages</h4>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-sm">Python</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-sm">R</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-sm">SQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm uppercase text-gray-500 dark:text-gray-400 mb-2">Competencies</h4>
+                            <p class="text-gray-700 dark:text-gray-200 text-sm">Problem-solving, Adaptability in research environments</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Publications Section -->
-    <section id="publications" class="py-10 bg-gradient-to-r from-blue-100 to-green-100 fade-in">
+    <section id="publications" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Publications</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
+                I have published multiple research papers in reputed journals with high NAAS scores and Impact Factors.
+            </p>
+
+            <div class="flex flex-col items-center justify-center">
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 max-w-2xl w-full mb-8">
+                     <i class="fas fa-book-open text-4xl text-primary mb-4"></i>
+                     <h3 class="text-2xl font-bold mb-2">9 Selected Publications</h3>
+                     <p class="text-gray-600 dark:text-gray-400">Covering topics in Immunoinformatics, Virology, and Genomics.</p>
+                </div>
+
+                <a href="publications.html" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-primary rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    View Detailed Publication List <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6 text-blue-600">Selected Publications</h2>
-            <div class="space-y-6 max-w-4xl mx-auto">
-                <!-- Publication 1 -->
-                <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700">Decoding Bovine Coronavirus Immune Targets: An Epitope Informatics Approach</h3>
-                    <p>Published in Animal Diseases</p>
-                    <a href="https://doi.org/10.1186/s44149-024-00118-x" target="_blank" class="text-blue-500 hover:underline">Read more</a>
+            <h2 class="text-3xl font-bold text-center mb-12">Training & Workshops</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Item 1 -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md border-l-4 border-secondary flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">RNAome: Profiling and Characterization of Non-Coding RNAs</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">ICAR-Indian Agricultural Statistics Research Institute, New Delhi</p>
+                    </div>
+                    <span class="mt-2 md:mt-0 text-sm font-medium bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-600 dark:text-gray-300">Mar 2024</span>
                 </div>
-                <!-- Publication 2 -->
-                <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700">Comprehensive Epitope Prediction, Molecular Docking, and In Silico Vaccine Construction Targeting Monkeypox Virus</h3>
-                    <p>Published in Acta Scientific Veterinary Sciences</p>
-                    <a href="https://doi.org/10.31080/ASVS.2024.06.0845" target="_blank" class="text-blue-500 hover:underline">Read more</a>
+                <!-- Item 2 -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md border-l-4 border-primary flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Hands-on Experience Training in Plant Tissue Culture</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Birsa Agriculture University, Ranchi</p>
+                    </div>
+                    <span class="mt-2 md:mt-0 text-sm font-medium bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-600 dark:text-gray-300">Dec 2019</span>
                 </div>
-                <!-- Publication 3 -->
-                <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700">Identification of Molecular and Cellular Infection Response Biomarkers Associated with Anthrax Infection</h3>
-                    <p>Published in Computational Biology</p>
-                    <a href="https://doi.org/10.1016/j.compbiomed.2024.109431" target="_blank" class="text-blue-500 hover:underline">Read more</a>
+                <!-- Item 3 -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md border-l-4 border-blue-400 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Training in Dairy Products, Sterilization, and Pasteurization</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Bihar State Milk Co-operative Federation Ltd., India</p>
+                    </div>
+                    <span class="mt-2 md:mt-0 text-sm font-medium bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-600 dark:text-gray-300">Mar 2018</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md border-l-4 border-purple-400 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Training in Proximate Analysis, Animal Nutrition, Vaccine Production</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Institute of Animal Health and Production, Dept of Animal Husbandry</p>
+                    </div>
+                    <span class="mt-2 md:mt-0 text-sm font-medium bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-600 dark:text-gray-300">Jan 2018</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Training & Workshops Section -->
-    <section id="training" class="py-10 bg-white shadow-md fade-in">
+    <!-- References Section -->
+    <section id="references" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6 text-green-500">Training & Workshops</h2>
-            <div class="space-y-4 max-w-4xl mx-auto">
-                <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700">RNAome: Profiling and Characterization of Non-Coding RNAs</h3>
-                    <p class="text-sm text-gray-500">ICAR-Indian Agricultural Statistics Research Institute, New Delhi (14/03/2024-20/03/2024)</p>
+            <h2 class="text-3xl font-bold text-center mb-12">References</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Dr. Imrankhan Jiragal</h3>
+                    <p class="text-primary font-medium mb-2">Junior Social Science Expert</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Watershed Development Department, Bangalore</p>
+                    <div class="mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300">
+                        <p><i class="fas fa-envelope mr-2"></i> kwddmeldc@gmail.com</p>
+                        <p><i class="fas fa-phone mr-2"></i> +91 88610 07758</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700">Hands-on Experience Training in Plant Tissue Culture</h3>
-                    <p class="text-sm text-gray-500">Birsa Agriculture University, Ranchi (20/12/2019-10/12/2019)</p>
-                </div>
-                <div class="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700">Training in Dairy Products, Sterilization, and Pasteurization</h3>
-                    <p class="text-sm text-gray-500">Bihar State Milk Co-operative Federation Ltd., India (13/03/2018-20/03/2018)</p>
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Dr. Anita Sinha</h3>
+                    <p class="text-primary font-medium mb-2">Assistant Professor</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Ranchi University, India</p>
+                    <div class="mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300">
+                        <p><i class="fas fa-envelope mr-2"></i> anita0303@gmail.com</p>
+                        <p><i class="fas fa-phone mr-2"></i> +91 87890 22705</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-10 bg-gradient-to-r from-green-100 to-blue-100 fade-in">
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-blue-500 mb-6">Contact</h2>
-            <p class="text-lg">Email: <a href="mailto:mehnajkhatoon044@gmail.com" class="text-blue-500 hover:underline">mehnajkhatoon044@gmail.com</a></p>
-            <p class="text-lg">Phone: +91-8877848094</p>
-            <p class="text-lg">LinkedIn: <a href="https://www.linkedin.com/in/mehnaj-khatoon-741250230" class="text-blue-500 hover:underline">www.linkedin.com/in/mehnaj-khatoon-741250230</a></p>
-            <p class="text-lg">Address: ICAR-NIVEDI, Bengaluru, Karnataka, India</p>
+            <h2 class="text-3xl font-bold mb-8">Get In Touch</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+                I'm always open to discussing new research opportunities, collaborations, or just connecting with fellow researchers.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+                <a href="mailto:Mehnajkhatoon044@gmail.com" class="group flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-xl min-w-[200px] hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-envelope text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Email Me</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Mehnajkhatoon044@gmail.com</p>
+                </a>
+
+                <a href="https://www.linkedin.com/in/mehnaj-Khatoon-741250230" target="_blank" class="group flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-xl min-w-[200px] hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-linkedin-in text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">LinkedIn</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Connect Professionally</p>
+                </a>
+
+                <div class="group flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-xl min-w-[200px] hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Location</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Byatarayanapura, Bangalore</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-4 text-center">
-        <p>Dr. Mehnaj Khatoon. </p>
-        <p>&copy; 2025 <a href="https://navnathkamble.netlify.app/" class="text-blue-500 hover:underline">nksoftpune</a> All rights reserved.</p>
+    <footer class="bg-gray-100 dark:bg-gray-950 text-gray-600 dark:text-gray-400 py-8 text-center transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">&copy; 2025 Dr. Mehnaj Khatoon. All rights reserved.</p>
+            <p class="text-sm">
+                Designed with <i class="fas fa-heart text-red-500 mx-1"></i> by
+                <a href="https://navnathkamble.netlify.app/" target="_blank" class="text-primary hover:underline font-medium">nksoftpune</a>
+            </p>
+        </div>
     </footer>
 
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Check for saved user preference, if any, on load
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

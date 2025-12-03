@@ -1,0 +1,85 @@
+Mehnaj Khatoon
+Address: Byatarayanapura, Bangalore, India
+Phone No: +91-9304638300
+Email: Mehnajkhatoon044@gmail.com
+LinkedIn: www.linkedin.com/in/mehnaj-Khatoon-741250230
+
+CAREER OBJECTIVE
+Life science researcher with a Biotechnology background and expertise in bioinformatics,
+spanning multi-omics, SNP studies, protein modeling, and computational vaccine design. Skilled in wet
+lab techniques, including molecular biology, microbiology, immunology, DNA extraction, PCR, ELISA,
+and cell culture. Proficient in R, Python, Bioconductor, and machine learning, with a strong publication
+record. Committed to advancing translational research by integrating computational and experimental
+approaches to drive impactful scientific and healthcare outcomes.
+
+ACADEMIC QUALIFICATION
+11/2021 – 07/2023 Master of Science in Biotechnology (Aggregate: 72%)
+Ranchi University, Jharkhand, India
+
+08/2017 – 10/2020 Bachelor of Science in Biotechnology (Aggregate: 69.33%)
+Ranchi University, Jharkhand, India
+
+WORK EXPERIENCE
+18/02/2025 Present Project Research Associate
+ICAR - National Institute of Veterinary Epidemiology and Disease Informatics, Bangalore, India
+• Conducted bioinformatics research experiments on Japanese Encephalitis Virus
+• Performed Transcriptomic Analysis, NGS Analysis, and Machine learning
+• RNA-seq workflows, QC, alignment, and differential expression.
+• Manage project Progress report, PPT Expenditure, and overall project administration.
+
+1/02/2024 - 17/02/2025 Project Associate-I
+ICAR - National Institute of Veterinary Epidemiology and Disease Informatics, Bangalore, India
+• Conducted bioinformatics research experiments on One-Health viral diseases.
+• Conducted DNA Isolation, GEL Electrophoresis, and ELISA for samples
+• Performed molecular docking and molecular dynamics simulations, codon usage bias, evolutionary analysis, SNP Prediction, and PPI.
+• Modelling and analysing the 3D structure of proteins and nucleic acids.
+• Manage project expenditure and overall project administration.
+
+19/09/2023 – 30/01/2024 Office Assistant
+ICAR-NIVEDI, Bengaluru
+• Contributed to wet-lab tasks: DNA isolation, PCR, gel electrophoresis, and ELISA.
+
+SKILLS
+• Laboratory Skills
+o Molecular Biology: DNA isolation, gel electrophoresis, PCR
+o Microbiology: Staining (simple, differential, negative), culture techniques (pour, spread, streak, point, agar slant), growth kinetics study, media preparation
+o Immunology: ELISA, slide agglutination, blood cell counting
+• Bioinformatics Skills
+o Sequence Analysis: Multiple sequence alignment (MSA), BLAST, phylogenetic tree construction, sequence homology and similarity searches
+o Omics Data Analysis: Genomic and proteomic data mining, RNA-seq and transcriptomic analysis, differential gene expression analysis, multi-omics integration
+o Evolutionary & Genomic Studies: Phylogenetic reconstruction, codon usage bias, SNP identification, annotation, and characterization
+o Structural Bioinformatics: Molecular docking, virtual screening, molecular dynamics (MD) simulations, 3D protein structure modeling and validation, protein–protein interaction (PPI) network analysis.
+o Immunoinformatics: Epitope prediction, vaccine design, immunogenic peptide identification, T-cell and B-cell epitope mapping
+• Programming & Competencies
+o Languages: Python, R, SQL
+o Problem-solving: Troubleshooting experimental and computational issues
+o Adaptability: Thrives in dynamic and fast-paced research environments
+
+DISSERTATION
+02/2023 – 07/2024
+ICAR-National Institute of Veterinary Epidemiology and Disease Informatics, Bangalore, India
+Project: Decoding bovine coronavirus immune targets: an epitope informatics approach (Published in BMC Journal)
+
+PUBLICATIONS
+1. Rani, S., Khatoon, M., et al. (2025). Comprehensive Immunoinformatics Approach for Developing a Multi-Epitope Subunit Vaccine against Lumpy Skin Disease. Veterinary Vaccine, 100146. (NAAS: _)
+2. Mambully, S., Ramesh, V., Rani, S., Khatoon, M., et al. (2025). Genotype patterns and evolutionary rates: Uncovering Japanese encephalitis virus spread across Asia's climate regions. Acta Tropica, 107676. (NAAS: 8.10)
+3. Jiragal, I., Ganesamoorthi, S., Khatoon, M., et al. (2025). Food, Economic, and Livelihood Security of Farmers under PMFBY in Kolar, Karnataka. Indian Journal of Extension Education, 61(2), 40–44. (NAAS: 5.2)
+4. Sekar, Y.S., Suresh, K.P., Subramaniam, S., et al., Khatoon, M., et al. (2024). Genomic exploration of foot-and-mouth disease signal molecules in Malnad Gidda and Hallikar breeds of Karnataka: A RNA-seq approach. The Indian Journal of Animal Sciences. (NAAS: 6.20)
+5. Rani, S., Ramesh, V., Khatoon, M., et al. (2024). Identification of molecular and cellular infection response biomarkers associated with anthrax infection through comparative analysis of gene expression data. Computers in Biology and Medicine, 184, 109431. (NAAS: 13.00)
+6. Mamathashree MN, Swati Rani, Suresh KP, et al., Mehnaj Khatoon, et al. (2024). Phytochemical profiling of Acacia nilotica against SARS-CoV-2 inhibitory potentials. Int. J. Adv. Biochem. Res. 8(8S):1392-1407. (NAAS: 5.29)
+7. Mamathashree MN, Suresh KP, Swati Rani, et al., Mehnaj Khatoon (2024). A comprehensive immuno-informatics analysis to design and evaluate a multi-epitope vaccine against the Japanese encephalitis virus. Int. J. Adv. Biochem. Res. 8(8S):1369-1385. (NAAS: 5.29)
+8. Mehnaj Khatoon, Madumitha B, Swati Rani, et al. (2024). Comprehensive Epitope Prediction, Molecular Docking, and In Silico Vaccine Construction Targeting Monkeypox Virus. Acta Scientific Veterinary Sciences 6.3: 96-107. (Impact Factor: 0.8)
+9. Rani, S., Khatoon, M., Hiremath, J. et al. (2024). Decoding bovine coronavirus immune targets: an epitope informatics approach. Animal Diseases 4, 15. (NAAS: 8.0)
+
+TRAINING/PROJECT
+• Training on RNAome: Profiling and Characterization of Non-coding RNAs, organized by ICAR–Indian Agricultural Statistics Research Institute, New Delhi (March 2024).
+• Training in Dairy Products, Sterilization and Pasteurization, Fat Test, and Lactose Test, organized by Bihar State Milk Cooperative Federation Ltd., India (March 2018).
+• Training in Proximate Analysis of Feed Additives, Animal Nutrition, Zoonotic Disease, Vaccine and Vaccine Production, Media Preparation and Sterilization, Quality Control, Biotechnology, and Bioinformatics Practices, organized by the Institute of Animal Health and Production, Department of Animal Husbandry (January 2018).
+• Hands-on training in Plant Tissue Culture, organized by Birsa Agricultural University, Ranchi (December 2019).
+
+LANGUAGES
+Languages: English, Hindi
+
+REFERENCES
+• Dr. Imrankhan Jiragal, Junior Social Science Expert, Watershed Development Department, Bangalore. Email: kwddmeldc@gmail.com | Mobile: +91 88610 07758
+• Dr. Anita Sinha, Assistant Professor, Ranchi University, India. Email: anita0303@gmail.com | Mobile: +91-8789022705
